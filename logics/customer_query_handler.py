@@ -61,20 +61,20 @@ def identify_category_and_courses(user_message):
 
 
 # Load the JSON file
-# filepath = './data/courses-full.json'
-# with open(filepath, 'r') as file:
-#     json_string = file.read()
-#     dict_of_courses = json.loads(json_string)
+filepath = './data/courses-full.json'
+with open(filepath, 'r') as file:
+    json_string = file.read()
+    dict_of_courses = json.loads(json_string)
 
 # URL of the raw JSON file on GitHub
-url = 'https://raw.githubusercontent.com/ryanhls/Week_08_tasks/refs/heads/main/data/courses-full.json'
+# url = 'https://raw.githubusercontent.com/ryanhls/Week_08_tasks/refs/heads/main/data/courses-full.json'
 
 # Fetch the JSON file from GitHub
-response = requests.get(url)
-json_string = response.text
+# response = requests.get(url)
+# json_string = response.text
 
 # Parse the JSON string into a Python dictionary
-dict_of_courses = json.loads(json_string)
+# dict_of_courses = json.loads(json_string)
 
 
 

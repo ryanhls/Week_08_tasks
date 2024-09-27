@@ -1,5 +1,6 @@
 import pandas as pd
 import json
+import requests
 from helper_functions import llm
 
 category_n_course_name = {'Programming and Development': ['Web Development Bootcamp',
@@ -59,11 +60,23 @@ def identify_category_and_courses(user_message):
 
 
 
-filepath = './data/courses-full.json'
+# Load the JSON file
+# filepath = './data/courses-full.json'
+# with open(filepath, 'r') as file:
+#     json_string = file.read()
+#     dict_of_courses = json.loads(json_string)
 
-with open(filepath, 'r') as file:
-    json_string = file.read()
-    dict_of_courses = json.loads(json_string)
+# URL of the raw JSON file on GitHub
+url = 'https://raw.githubusercontent.com/ryanhls/Week_08_tasks/refs/heads/main/data/courses-full.json'
+
+# Fetch the JSON file from GitHub
+response = requests.get(url)
+json_string = response.text
+
+# Parse the JSON string into a Python dictionary
+dict_of_courses = json.loads(json_string)
+
+
 
 def get_course_details(list_of_category_n_course: list[dict]):
     course_names_list = []

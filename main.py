@@ -1,3 +1,4 @@
+# test
 # Set up and run this Streamlit App
 import streamlit as st
 import pandas as pd
@@ -36,4 +37,3 @@ if form.form_submit_button("Submit"):
     print(course_details)
     df = pd.DataFrame(course_details)
     df 
-

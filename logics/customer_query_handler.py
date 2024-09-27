@@ -38,7 +38,7 @@ def identify_category_and_courses(user_message):
 
     Decide if the query is relevant to any specific courses
     in the Python dictionary below, which each key is a `category`
-    and the value is a list of `course_name`.
+    and the value is a list of `course_name`. The user's query might be in lowercase.
 
     If there are any relevant course(s) found, output the pair(s) of a) `course_name` the relevant courses and b) the associated `category` into a
     list of dictionary object, where each item in the list is a relevant course

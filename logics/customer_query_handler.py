@@ -1,6 +1,5 @@
-import os
+import pandas as pd
 import json
-import openai
 from helper_functions import llm
 
 category_n_course_name = {'Programming and Development': ['Web Development Bootcamp',
@@ -20,13 +19,6 @@ category_n_course_name = {'Programming and Development': ['Web Development Bootc
                           'Writing and Literature': ['Creative Writing Workshop',
                                                      'Advanced Creative Writing'],
                           'Design': ['Graphic Design Essentials', 'UI/UX Design Fundamentals']}
-
-# Load the JSON file
-filepath = './data/courses-full.json'
-with open(filepath, 'r') as file:
-    json_string = file.read()
-    dict_of_courses = json.loads(json_string)
-
 
 def identify_category_and_courses(user_message):
     delimiter = "####"
@@ -64,17 +56,25 @@ def identify_category_and_courses(user_message):
     category_and_product_response_str = category_and_product_response_str.replace("'", "\"")
     category_and_product_response = json.loads(category_and_product_response_str)
     return category_and_product_response
-    
 
-def get_course_details(list_of_relevant_category_n_course: list[dict]):
+
+
+filepath = './data/courses-full.json'
+
+with open(filepath, 'r') as file:
+    json_string = file.read()
+    dict_of_courses = json.loads(json_string)
+
+def get_course_details(list_of_category_n_course: list[dict]):
     course_names_list = []
-    for x in list_of_relevant_category_n_course:
+    for x in list_of_category_n_course:
         course_names_list.append(x.get('course_name')) # x["course_name"]
 
     list_of_course_details = []
     for course_name in course_names_list:
         list_of_course_details.append(dict_of_courses.get(course_name))
     return list_of_course_details
+
 
 
 def generate_response_based_on_course_details(user_message, product_details):
@@ -122,6 +122,7 @@ def generate_response_based_on_course_details(user_message, product_details):
     return response_to_customer
 
 
+
 def process_user_message(user_input):
     delimiter = "```"
 
@@ -135,5 +136,4 @@ def process_user_message(user_input):
     # Process 3: Generate Response based on Course Details
     reply = generate_response_based_on_course_details(user_input, course_details)
 
-
-    return reply, course_details
+    return reply, pd.DataFrame(course_details)

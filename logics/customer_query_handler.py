@@ -25,13 +25,13 @@ def identify_category_and_courses(user_message):
     delimiter = "####"
 
     system_message = f"""
-    You will be provided with customer queries. \
-    The customer queries will be enclosed in
+    You will be provided with customer service queries. \
+    The customer service query will be enclosed in
     the pair of {delimiter}.
 
-    Decide if the customer queries is relevant to any specific courses
+    Decide if the query is relevant to any specific courses
     in the Python dictionary below, which each key is a `category`
-    and the value is a list of `course_name`.
+    and the value is a list of `course_name`. Think twice and decide carefully, you may use * search.
 
     If there are any relevant course(s) found, output the pair(s) of a) `course_name` the relevant courses and b) the associated `category` into a
     list of dictionary object, where each item in the list is a relevant course
@@ -131,7 +131,7 @@ def generate_response_based_on_course_details(user_message, product_details):
     ]
 
     response_to_customer = llm.get_completion_by_messages(messages)
-    #response_to_customer = response_to_customer.split(delimiter)[-1]
+    response_to_customer = response_to_customer.split(delimiter)[-1]
     return response_to_customer
 
 

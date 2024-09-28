@@ -6,7 +6,7 @@ import tiktoken
 
 
 
-model_to_use="gpt-4o"
+model_to_use="gpt-3.5-turbo-0125"
 
 if load_dotenv('.env'):
    API_KEY = os.getenv('OPENAI_API_KEY')

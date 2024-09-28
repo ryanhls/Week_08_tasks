@@ -14,3 +14,10 @@ with st.expander("Query Tips"):
     st.write("I want to learn programming.")
     st.write("Are there any Python courses?")
     st.write("AI related courses.")
+
+st.divider()
+
+st.title("Streamlit App")
+st.header("Streamlit App")
+st.subheader("Streamlit App")
+st.markdown("Streamlit App")

@@ -21,11 +21,6 @@ category_n_course_name = {'Programming and Development': ['Web Development Bootc
                                                      'Advanced Creative Writing'],
                           'Design': ['Graphic Design Essentials', 'UI/UX Design Fundamentals']}
 
-    # Decide if the query is relevant to any specific courses
-    # in the Python dictionary "below, which each key is a `category`
-    # and the value is a list of `course_name`."
-
-
 def identify_category_and_courses(user_message):
     delimiter = "####"
 
@@ -35,7 +30,8 @@ def identify_category_and_courses(user_message):
     the pair of {delimiter}.
 
     Decide if the query is relevant to any specific courses
-    in the Python dictionary "category_n_course_name"
+    in the Python dictionary below, which each key is a `category`
+    and the value is a list of `course_name`.
 
     If there are any relevant course(s) found, output the pair(s) of a) `course_name` the relevant courses and b) the associated `category` into a
     list of dictionary object, where each item in the list is a relevant course
@@ -135,7 +131,7 @@ def generate_response_based_on_course_details(user_message, product_details):
     ]
 
     response_to_customer = llm.get_completion_by_messages(messages)
-    response_to_customer = response_to_customer.split(delimiter)[-1]
+    #response_to_customer = response_to_customer.split(delimiter)[-1]
     return response_to_customer
 
 

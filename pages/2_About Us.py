@@ -16,10 +16,6 @@ with st.expander("Query Tips"):
     st.write("AI related courses.")
 
 st.divider()
-st.divider()
-st.divider()
-st.divider()
-st.divider()
 
 st.title("Streamlit App")
 st.header("Streamlit App")

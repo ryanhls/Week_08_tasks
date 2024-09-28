@@ -6,7 +6,7 @@ import tiktoken
 
 
 
-model_to_use="o1-mini"
+model_to_use="o1-preview"
 
 if load_dotenv('.env'):
    API_KEY = os.getenv('OPENAI_API_KEY')

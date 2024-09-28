@@ -12,5 +12,5 @@ st.divider()
 
 with st.expander("Query Tips"):
     st.write("I want to learn programming.")
-    st.write("Is there any Python courses?")
+    st.write("Are there any Python courses?")
     st.write("AI related courses.")

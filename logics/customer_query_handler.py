@@ -25,11 +25,11 @@ def identify_category_and_courses(user_message):
     delimiter = "####"
 
     system_message = f"""
-    You will be provided with customer service queries. \
-    The customer service query will be enclosed in
+    You will be provided with customer queries. \
+    The customer queries will be enclosed in
     the pair of {delimiter}.
 
-    Decide if the query is relevant to any specific courses
+    Decide if the customer queries is relevant to any specific courses
     in the Python dictionary below, which each key is a `category`
     and the value is a list of `course_name`.
 

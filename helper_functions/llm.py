@@ -9,13 +9,18 @@ import tiktoken
 model_to_use="gpt-4o-mini"
 
 if load_dotenv('.env'):
+    #For running in local via "streamlit run main.py" from cmd prompt
     API_KEY = os.getenv('OPENAI_API_KEY')
 else:
     try:
+        #For streamlit app at https://course-query.streamlit.app
+        #This is because OPENAI_API_KEY is keep as a secret when deploying streamlit app
         API_KEY = st.secrets['OPENAI_API_KEY']
     except:
+        #For docket running in local and CStack.cloud
+        #This is because OPENAI_API_KEY is keep as a env variable when running the container from a docker image
         API_KEY = os.getenv('OPENAI_API_KEY')
-        
+
 # Pass the API Key to the OpenAI Client
 client = OpenAI(api_key=API_KEY)
 

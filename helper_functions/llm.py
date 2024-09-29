@@ -17,7 +17,7 @@ else:
         #This is because OPENAI_API_KEY is keep as a secret when deploying streamlit app
         API_KEY = st.secrets['OPENAI_API_KEY']
     except:
-        #For docket running in local and CStack.cloud
+        #For docker running in local machine and CStack.cloud
         #This is because OPENAI_API_KEY is keep as a env variable when running the container from a docker image
         API_KEY = os.getenv('OPENAI_API_KEY')
 

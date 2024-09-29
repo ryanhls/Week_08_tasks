@@ -9,10 +9,13 @@ import tiktoken
 model_to_use="gpt-4o-mini"
 
 if load_dotenv('.env'):
-   API_KEY = os.getenv('OPENAI_API_KEY')
+    API_KEY = os.getenv('OPENAI_API_KEY')
 else:
-   API_KEY = st.secrets['OPENAI_API_KEY']
-
+    try:
+        API_KEY = st.secrets['OPENAI_API_KEY']
+    except:
+        API_KEY = os.getenv('OPENAI_API_KEY')
+        
 # Pass the API Key to the OpenAI Client
 client = OpenAI(api_key=API_KEY)
 

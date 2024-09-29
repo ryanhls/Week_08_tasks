@@ -24,8 +24,6 @@ else:
 # Pass the API Key to the OpenAI Client
 client = OpenAI(api_key=API_KEY)
 
-
-
 def get_embedding(input, model='text-embedding-3-small'):
     response = client.embeddings.create(
         input=input,

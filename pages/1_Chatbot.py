@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 from logics.customer_query_handler import process_user_message
 
-st.title("Query the available courses with LLM")
+st.title("Streamlit App")
 
 form = st.form(key="form")
 form.subheader("Prompt")

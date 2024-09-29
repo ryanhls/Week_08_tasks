@@ -17,8 +17,8 @@ else:
         #This is because OPENAI_API_KEY is keep as a secret when deploying streamlit app
         API_KEY = st.secrets['OPENAI_API_KEY']
     except:
-        #For docker running in local machine and CStack.cloud
-        #This is because OPENAI_API_KEY is keep as a env variable when running the container from a docker image
+        #For docker running in local machine and CStack.cloud https://course-query.app.cstack.cloud
+                #This is because OPENAI_API_KEY is keep as a env variable when running the container from a docker image
         API_KEY = os.getenv('OPENAI_API_KEY')
 
 # Pass the API Key to the OpenAI Client
